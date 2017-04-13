@@ -9,6 +9,7 @@
            android:pivotX="32"
            android:pivotY="32">
         <path
+            android:fillColor="@color/dot_start"
             android:name="left_circle_path"
             android:pathData="M22,32
         A10,10 0 1,1 42,32
@@ -20,6 +21,7 @@
            android:pivotX="32"
            android:pivotY="32">
         <path
+            android:fillColor="@color/dot_start"
             android:name="middle_circle_path"
             android:pathData="M22,32
         A10,10 0 1,1 42,32
@@ -31,6 +33,7 @@
            android:pivotX="32"
            android:pivotY="32">
         <path
+            android:fillColor="@color/dot_start"
             android:name="right_circle_path"
             android:pathData="M22,32
         A10,10 0 1,1 42,32
