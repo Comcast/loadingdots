@@ -3,33 +3,13 @@ package com.xfinity.loadingdotssample;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MenuItem;
-import android.widget.TextView;
+import android.view.View;
+import com.xfinity.loadingdots.LoadingDots;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView textView;
-    private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    textView.setText(R.string.title_home);
-                    return true;
-                case R.id.navigation_dashboard:
-                    textView.setText(R.string.title_dashboard);
-                    return true;
-                case R.id.navigation_notifications:
-                    textView.setText(R.string.title_notifications);
-                    return true;
-            }
-            return false;
-        }
-    };
+    private LoadingDots loadingDots;
+    private View visibilityToggle;
 
     @TargetApi(Build.VERSION_CODES.M)
     @Override
@@ -37,9 +17,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textView = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
+        loadingDots = (LoadingDots) findViewById(R.id.loading_dots);
+        visibilityToggle = findViewById(R.id.visibility_toggle);
+        visibilityToggle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (loadingDots.getVisibility() == View.GONE) {
+                    loadingDots.setVisibility(View.VISIBLE);
+                } else {
+                    loadingDots.setVisibility(View.GONE);
+                }
+            }
+        });
     }
 }
 
