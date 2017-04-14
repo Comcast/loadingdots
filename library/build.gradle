@@ -8,8 +8,8 @@ android {
     defaultConfig {
         minSdkVersion 11
         targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.0.1"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         project.archivesBaseName = "loadingdotslib-$versionName"
@@ -41,7 +41,7 @@ publishing {
         loadingdots(MavenPublication) {
             groupId 'com.xfinity'
             artifactId 'loadingdots'
-            version '1.0'
+            version '1.0.1'
             artifact(sourceJar)
             artifact("$buildDir/outputs/aar/$project.archivesBaseName-release.aar")
             pom.withXml {
