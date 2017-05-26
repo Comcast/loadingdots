@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="loading_dot_animation_duration">250</integer>
+    <integer name="loading_dot_middle_animation_delay">250</integer>
+    <integer name="loading_dot_right_animation_delay">500</integer>
+</resources>

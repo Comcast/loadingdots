@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+                 xmlns:tools="http://schemas.android.com/tools"
+                 android:drawable="@drawable/vector_loading_dots"
+                 tools:targetApi="lollipop">
+    <target
+        android:name="left"
+        android:animation="@animator/loading_dot_left" />
+    <target
+        android:name="left_circle_path"
+        android:animation="@animator/loading_dot_left_color" />
+    <target
+        android:name="middle"
+        android:animation="@animator/loading_dot_middle"/>
+    <target
+        android:name="middle_circle_path"
+        android:animation="@animator/loading_dot_middle_color" />
+    <target
+        android:name="right"
+        android:animation="@animator/loading_dot_right" />
+    <target
+        android:name="right_circle_path"
+        android:animation="@animator/loading_dot_right_color" />
+</animated-vector>

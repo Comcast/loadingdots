@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+     android:ordering="together">
+    <objectAnimator
+        android:duration="@integer/loading_dot_animation_duration"
+        android:startOffset="@integer/loading_dot_middle_animation_delay"
+        android:propertyName="fillColor"
+        android:valueFrom="@color/dot_start"
+        android:valueTo="@color/dot_end"
+        android:repeatMode="reverse"
+        android:repeatCount="1"/>
+</set>
