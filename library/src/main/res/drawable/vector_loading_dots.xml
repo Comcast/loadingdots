@@ -10,31 +10,28 @@
            android:pivotY="32">
         <path
             android:name="left_circle_path"
-            android:fillColor="@color/dot_start"
             android:pathData="M22,32
         A10,10 0 1,1 42,32
         A10,10 0 1,1 22,32 Z"/>
     </group>
 
     <group android:name="middle"
-           android:translateX="100"
+           android:translateX="32"
            android:pivotX="32"
            android:pivotY="32">
         <path
             android:name="middle_circle_path"
-            android:fillColor="@color/dot_start"
             android:pathData="M22,32
         A10,10 0 1,1 42,32
         A10,10 0 1,1 22,32 Z"/>
     </group>
 
     <group android:name="right"
-           android:translateX="200"
-           android:pivotX="50"
+           android:translateX="64"
+           android:pivotX="32"
            android:pivotY="32">
         <path
             android:name="right_circle_path"
-            android:fillColor="@color/dot_start"
             android:pathData="M22,32
         A10,10 0 1,1 42,32
         A10,10 0 1,1 22,32 Z"/>
