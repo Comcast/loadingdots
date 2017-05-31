@@ -17,7 +17,7 @@ example:
 
 The LoadingDots View will scale to any width/height dimensions without any pixelization or any other traditional ImageView artifacts.
 
-In addition, since it uses an AnimatedVectorDrawable, animations excute on the Render Thread, which preserves smoothness even in the face of intense, simultaneous UI Thread usage.
+In addition, since it uses an AnimatedVectorDrawable, animations excute on the Render Thread, which preserves smoothness even in the face of intense, simultaneous UI Thread usage. Animations will start and end automatically based on the visibility of the LoadingDots view, so at this time you must directly change the visibility of the view. If you have the view in a parent whose visibility you change, the dots will continue animating even though they cannot be seen. 
 
 Currently, the animations are not customizable.  However, the colors of the dots can be altered by overriding the resources in the client application.  To do so, in your colors.xml file, simply include
  
