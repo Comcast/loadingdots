@@ -1,6 +1,5 @@
 package com.xfinity.loadingdots;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Animatable2;
@@ -9,9 +8,9 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.graphics.drawable.Animatable2Compat;
 import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
-import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -33,15 +32,8 @@ public class LoadingDots extends android.support.v7.widget.AppCompatImageView {
         init();
     }
 
-    @TargetApi(Build.VERSION_CODES.M)
     private void init() {
-        if (Build.VERSION.SDK_INT >= 21) {
-            AnimatedVectorDrawable drawable = new AnimatedVectorDrawable();
-            Drawable animAsDrawable = ContextCompat.getDrawable(getContext(), R.drawable.animated_vector_loading_dots);
-            setImageDrawable(animAsDrawable);
-        } else {
-            setImageResource(R.drawable.animated_vector_loading_dots);
-        }
+        setImageResource(R.drawable.animated_vector_loading_dots);
 
         animation = (Animatable) getDrawable();
         if (getVisibility() == View.VISIBLE) {
@@ -52,7 +44,7 @@ public class LoadingDots extends android.support.v7.widget.AppCompatImageView {
             final AnimatedVectorDrawableCompat animatedVectorDrawableCompat = (AnimatedVectorDrawableCompat) animation;
             animatedVectorDrawableCompat.registerAnimationCallback(new Animatable2Compat.AnimationCallback() {
                 @Override
-                public void onAnimationEnd(Drawable drawable) {
+                public void onAnimationEnd(final Drawable drawable) {
                     if (drawable instanceof Animatable) {
                         if (animation.isRunning()) {
                             animation.stop();
@@ -70,19 +62,22 @@ public class LoadingDots extends android.support.v7.widget.AppCompatImageView {
             });
         } else if (animation instanceof AnimatedVectorDrawable) {
             final AnimatedVectorDrawable animatedVectorDrawable = (AnimatedVectorDrawable) animation;
-            animatedVectorDrawable.registerAnimationCallback(new Animatable2.AnimationCallback() {
-                @Override
-                public void onAnimationEnd(Drawable drawable) {
-                    if (drawable instanceof Animatable2) {
-                        post(new Runnable() {
-                            @Override
-                            public void run() {
-                                animatedVectorDrawable.start();
-                            }
-                        });
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                animatedVectorDrawable.registerAnimationCallback(new Animatable2.AnimationCallback() {
+                    @Override
+                    public void onAnimationEnd(Drawable drawable) {
+                        if (drawable instanceof Animatable2) {
+                            post(new Runnable() {
+                                @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+                                @Override
+                                public void run() {
+                                    animatedVectorDrawable.start();
+                                }
+                            });
+                        }
                     }
-                }
-            });
+                });
+            }
         }
     }
 
