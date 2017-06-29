@@ -1,5 +1,6 @@
 package com.xfinity.loadingdots;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Animatable2;
@@ -50,6 +51,9 @@ public class LoadingDots extends android.support.v7.widget.AppCompatImageView {
         init();
     }
 
+    //We shouldn't need this since line 98 is wrapped in an if conditional, but lint refuses to recognize that, so also
+    // annotate
+    @TargetApi(Build.VERSION_CODES.M)
     private void init() {
         if (Build.VERSION.SDK_INT >= 21) {
             AnimatedVectorDrawable drawable = new AnimatedVectorDrawable();

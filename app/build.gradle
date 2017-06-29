@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion "25.0.3"
     defaultConfig {
         applicationId "com.xfinity.loadingdotssample"
         minSdkVersion 11
@@ -16,6 +16,13 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    lintOptions {
+        //Google made the newest version of lint force you to target sdk version 26, and then made the android gradle plugin
+        // force you to use the 26-beta versions of the support libs. Since we don't use beta versions in prod, turn the
+        // gradle compatibility check off
+        disable 'GradleCompatible'
     }
 }
 
