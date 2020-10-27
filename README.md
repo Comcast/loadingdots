@@ -37,7 +37,7 @@ LoadingDots are backwards compatible to API 11
 Include the library in your project by adding
 
 ```xml
-compile 'com.xfinity:loadingdots:1.0@aar'
+implementation 'com.xfinity:loadingdots:1.0@aar'
 ```
 
 To your build.gradle
